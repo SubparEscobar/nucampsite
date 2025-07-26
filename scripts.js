@@ -44,12 +44,14 @@ function displayWeather(data) {
     const weatherIcon = document.getElementById('weather-icon');
     const weatherTemp = document.getElementById('weather-temp');
     const weatherDescription = document.getElementById('weather-description');
+    const weatherHumidity = document.getElementById('weather-humidity');
 
     const iconCode = data.weather[0].icon;
     const iconUrl = `http://openweathermap.org/img/wn/${iconCode}.png`;
     weatherIcon.innerHTML = `<img src="${iconUrl}" alt="${data.weather[0].description}" />`;
     weatherTemp.textContent = `${Math.round(data.main.temp)}°F`;
     weatherDescription.textContent = data.weather[0].description;
+    weatherHumidity.textContent = `Humidity: ${data.main.humidity}%`;
 
     // Make the weather component visible
     document.getElementById('weather').classList.remove('d-none');
